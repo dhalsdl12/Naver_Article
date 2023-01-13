@@ -32,8 +32,8 @@ def extract_book_data():
     upload_contents = ''
 
     for i in range(len(article_title)):
-        url = article_link[i]
-        title = ' ' + article_title[i]
+        url = '\"' + article_link[i] + '\"'
+        title = article_title[i]
         content = f"<a href={url}>" + title + "</a>" + "<br/>\n"
         upload_contents += content
 
