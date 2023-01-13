@@ -20,10 +20,12 @@ def pageCrawl():
     for article in article_list:
         try:
             news_info = article.find_element(By.XPATH, "./div/div/a[@class=\"news_tit\"]")
+            news_text = article.find_element(By.XPATH, "./div/div/div[@class=\"news_dsc\"]/div/a")
             title = news_info.get_attribute('title')
             link = news_info.get_attribute('href')
             article_title.append(title)
             article_link.append(link)
+            article_text.append(news_text.text)
         except:
             print("error")
 
@@ -34,7 +36,8 @@ def extract_book_data():
     for i in range(len(article_title)):
         url = '\"' + article_link[i] + '\"'
         title = article_title[i]
-        content = f"<a href={url}>" + title + "</a>" + "<br/>\n"
+        text = article_text[i]
+        content = f"<a href={url}>" + title + "</a>" + "<br/>" + text + "<br/>\n"
         upload_contents += content
 
     return upload_contents
@@ -51,6 +54,7 @@ if __name__ == "__main__":
     
     article_title = []
     article_link = []
+    article_text = []
 
     chrome_driver = os.path.join('chromedriver')
     chrome_options = webdriver.ChromeOptions()
@@ -66,6 +70,7 @@ if __name__ == "__main__":
     for i in range(len(article_title)):
         print(article_title[i])
         print(article_link[i])
+        print(article_text[i])
 
     issue_title = f"Naver 맨체스터시티 Article({today_date})"
     upload_contents = extract_book_data()
