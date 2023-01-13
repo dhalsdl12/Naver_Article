@@ -5,7 +5,7 @@ name: Python package
 
 on:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch:
       inputs:
          logLevel:
