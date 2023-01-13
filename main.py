@@ -38,7 +38,7 @@ def extract_book_data():
         title = article_title[i]
         text = article_text[i]
         content = f"<a href={url}>" + title + "</a>" + "<br/>"
-        content += "<blockquote data-ke-style="style2">" + text + "</blockquote><br/>\n"
+        content += "<blockquote data-ke-style=\"style2\">" + text + "</blockquote><br/>\n"
         upload_contents += content
 
     return upload_contents
