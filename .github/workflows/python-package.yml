@@ -27,12 +27,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     
-    - name: Download chromedriver
-      run: |
-        wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
-        unzip tmp.zip && rm tmp.zip
-    
-    - name: Install python package # 파이썬 관련 패키지를 설치하고
+    - name: Install python package
       run: |        
         pip install selenium
         
@@ -47,6 +42,11 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Download chromedriver
+      run: |
+        wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
+        unzip tmp.zip && rm tmp.zip
+    
     - name: Test with pytest
       run: |
         python naver_sports_article.py
