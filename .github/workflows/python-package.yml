@@ -26,6 +26,11 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+        
+    - name: Install python package # 파이썬 관련 패키지를 설치하고
+      run: |        
+        pip install selenium
+        
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
