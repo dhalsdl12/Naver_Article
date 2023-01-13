@@ -3,6 +3,10 @@ name: Naver_sports
 on:
   schedule:
     - cron: '0 0 * * *'
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
       inputs:
          logLevel:
