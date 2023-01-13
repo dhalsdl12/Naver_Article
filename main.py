@@ -33,7 +33,7 @@ def extract_book_data():
 
     for i in range(len(article_title)):
         url = article_link[i]
-        title = article_title[i]
+        title = ' ' + article_title[i]
         content = f"<a href={url}>" + title + "</a>" + "<br/>\n"
         upload_contents += content
 
