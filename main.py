@@ -6,7 +6,7 @@ from pytz import timezone
 from github_setting import get_github_repo, upload_github_issue
 
 
-def pageCrawl(drive):
+def pageCrawl():
     article_list = drive.find_elements(By.XPATH, "//ul[@class=\"list_news\"]/li")
     for article in article_list:
         try:
@@ -47,7 +47,7 @@ def execute_drive():
 
     drive = webdriver.Chrome(chrome_driver, options=chrome_options)
     drive.get(url)
-    pageCrawl(drive)
+    return drive
 
 
 if __name__ == "__main__":
@@ -61,7 +61,8 @@ if __name__ == "__main__":
     article_link = []
     article_text = []
 
-    execute_drive()
+    drive = execute_drive()
+    pageCrawl()
 
     for i in range(len(article_title)):
         print(article_title[i])
