@@ -21,7 +21,7 @@ def pageCrawl():
             print("error")
 
 
-def extract_book_data():
+def extract_article_data():
     upload_contents = ''
 
     for i in range(len(article_title)):
@@ -70,7 +70,7 @@ if __name__ == "__main__":
         print(article_text[i])
 
     issue_title = f"Naver 맨체스터시티 Article({today_date})"
-    upload_contents = extract_book_data()
+    upload_contents = extract_article_data()
     repo = get_github_repo(access_token, repository_name)
     upload_github_issue(repo, issue_title, upload_contents)
     print("Upload Github Issue Success!")
