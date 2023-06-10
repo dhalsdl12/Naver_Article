@@ -45,7 +45,8 @@ def execute_drive():
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--disable-gpu')
 
-    drive = webdriver.Chrome(chrome_driver, options=chrome_options)
+    # drive = webdriver.Chrome(chrome_driver, options=chrome_options)
+    drive = webdriver.Chrome(chrome_driver)
     drive.get(url)
     return drive
 
