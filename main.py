@@ -1,6 +1,7 @@
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service as ChromeService
 from datetime import datetime
 from pytz import timezone
 from github_setting import get_github_repo, upload_github_issue
@@ -44,9 +45,8 @@ def execute_drive():
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--disable-gpu')
-
-    # drive = webdriver.Chrome(chrome_driver, options=chrome_options)
-    drive = webdriver.Chrome(chrome_driver)
+    service = ChromeService(executable_path=chrome_driver)
+    drive = webdriver.Chrome(service=service, options=chrome_options)
     drive.get(url)
     return drive
 
