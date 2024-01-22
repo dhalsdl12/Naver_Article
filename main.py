@@ -36,7 +36,7 @@ def extract_article_data():
 
     return upload_contents
 
-
+# 크롬 드라이버 자동 설치 및 실행
 def execute_drive():
     url = 'https://search.naver.com/search.naver?where=news&query=%EB%A7%A8%EC%B2%B4%EC%8A%A4%ED%84%B0%EC%8B%9C%ED%8B%B0&sm=tab_opt&sort=0&photo=0&field=0&pd=4&ds=&de=&docid=&related=0&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so%3Ar%2Cp%3A1d&is_sug_officeid=0'
     '''
