@@ -7,7 +7,7 @@ from datetime import datetime
 from pytz import timezone
 from github_setting import get_github_repo, upload_github_issue
 
-
+  
 def pageCrawl():
     article_list = drive.find_elements(By.XPATH, "//ul[@class=\"list_news\"]/li")
     for article in article_list:
